@@ -1,0 +1,95 @@
+<!DOCTYPE>
+<html>
+
+<head ng-controller = "CoinsCtrl as ac" ng-onload="ac.fetchCoins()">
+    <meta charset="utf-8">
+    <title>Naslovna</title>
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+
+<body ng-app="Aplikacija" >
+<!-- Meni preuzet iz primera: http://getbootstrap.com/docs/4.0/examples/starter-template/ -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">CryptoTrade</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false"
+            aria-label="Prikaži/sakrij meni">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" ui-sref="home">Početna</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref="login">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+        <ui-view></ui-view>
+    </div>
+<!--
+<div class="container" ng-controller="LoginCtrl as lc">
+<p ng-show="lc.failed">Neuspešno logovanje!</p>
+<form ng-show="lc.showLogin" ng-submit="lc.login()">
+    <input type="text" ng-model="lc.user.username">
+    <input type="password" ng-model="lc.user.password">
+    <input type="submit" value="Login">
+</form>
+</div>
+
+
+-->
+
+
+    <div class="dropdown" ng-controller="CoinsCtrl as ac">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{coinSel.name}}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" ng-repeat = "coin in ac.coins" ng-click="ac.selectCoin(coin)"  href="#">{{coin.name}}</a>
+  </div>
+</div>
+
+<!--
+<table class="sortable" style="width:100%" ng-controller="CoinsCtrl as ac">
+        <tr>
+            <th>Naziv</th>
+            <th>Simbol</th>
+            <th class="sorttable_numeric">Rang</th>
+            <th class="sorttable_numeric">Vrednost u $</th>
+            <th class="sorttable_numeric">Vrednost u BTC</th>
+            <th class="sorttable_numeric">Ukupna ponuda</th>
+        </tr>
+        <tr ng-repeat="a in ac.coins">
+            <td>{{a.name}}</td>
+            <td>{{a.symbol}}</td>
+            <td>{{a.rank}}</td>
+            <td>{{a.price_usd}}</td>
+            <td>{{a.price_btc}}</td>
+            <td>{{a.total_supply}}</td>
+        </tr>
+    </table>
+-->
+
+<script src="js/jquery/jquery-3.2.1.min.js"></script>
+<script src="js/popper.js/popper.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+
+<script src="js/angularjs/angular.min.js"></script>
+<script src="js/angularjs-ui-router/angular-ui-router.min.js"></script>
+
+<script src="app/app.js"></script>
+<script src="app/login/login.js"></script>
+<script src="app/coins/coins.js"></script>
+<script src="app/coin/coin.js"></script>
+<script src="js/sorttable.js"></script>
+<script src="js/chart.js"></script>
+<script src="js/angular-chart.js"></script>
+</body>
+
+</html>

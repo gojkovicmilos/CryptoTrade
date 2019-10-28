@@ -1,0 +1,20 @@
+<table class="sortable" style="width:100%" ng-controller="CoinsCtrl as ac">
+        <tr>
+            <th>Naziv</th>
+            <th>Simbol</th>
+            <th class="sorttable_numeric">Rang</th>
+            <th class="sorttable_numeric">Vrednost u $</th>
+            <th class="sorttable_numeric">Vrednost u BTC</th>
+            <th class="sorttable_numeric">Ukupna ponuda</th>
+        </tr>
+        <tr ng-repeat="a in ac.coins">
+            <td>{{a.name}}</td>
+            <td>{{a.symbol}}</td>
+            <td>{{a.rank}}</td>
+            <td>{{a.price_usd}}</td>
+            <td>{{a.price_btc}}</td>
+            <td>{{a.total_supply}}</td>
+        </tr>
+    </table>
+
+<script src="js/sorttable.js"></script>
